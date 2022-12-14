@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: del-khay <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 14:42:14 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/13 16:25:14 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/14 00:24:55 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_list
 }					t_list;
 
 char				*ft_itoa(int n);
+void				ft_free2(char **string);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strdup(const char *s);
 char				*ft_strjoin(char *dst, char *src);

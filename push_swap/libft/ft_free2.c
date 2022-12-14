@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_free2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 17:35:45 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/14 17:52:56 by del-khay         ###   ########.fr       */
+/*   Created: 2022/12/14 00:24:25 by del-khay          #+#    #+#             */
+/*   Updated: 2022/12/14 00:24:34 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void printArray(int array[], int size) {
-  for (int i = 0; i < size; ++i) {
-    printf("%d  ", array[i]);
-  }
-  printf("\n");
-}
-
-int	main(int ac, char **av)
+void	ft_free2(char **string)
 {
-	t_arr	args;
+	int	i;
 
-	if (ac < 2)
-		return (1); // not enough args and do nothing
-	args = getstack(ac, av);
-	check_double(args);
-	printArray(args.arr,args.size);
+	i = 0;
+	while (string[i])
+	{
+		free(string[i]);
+		i++;
+	}
+	free(string);
 }
-
-	// system("leaks push_swap");

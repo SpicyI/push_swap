@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: del-khay <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:56:03 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/13 17:08:29 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/14 00:26:19 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ t_arr	getstack(int ac, char **av)
 		s = ft_strjoin(s, av[cnt]);
 		s = ft_strjoin(s," ");
 	}
-	printf("%s\n",s);
 	s1 = ft_split(s, ' ');
 	args.size = countargs(s1);
 	if (!args.size)
@@ -41,7 +40,8 @@ t_arr	getstack(int ac, char **av)
 		args.arr[i] = ft_atoi(s1[i]);
 		i++;
 	}
-	printf("%d\n",args.size);
+	free(s);
+	ft_free2(s1);
 	return	(args);
 }
 
