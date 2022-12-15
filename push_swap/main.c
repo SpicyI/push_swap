@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:45 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/14 17:52:56 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/16 00:17:59 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,12 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		return (1); // not enough args and do nothing
+	args.b_head = 0;
+	args.b = args.b_head;
+	args.b_size = 0;
 	args = getstack(ac, av);
 	check_double(args);
-	printArray(args.arr,args.size);
+	//printArray(args.arr,args.size);
 }
 
 	// system("leaks push_swap");

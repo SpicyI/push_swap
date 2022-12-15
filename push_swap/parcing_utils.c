@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 22:16:57 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/15 17:49:41 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/16 00:19:42 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,26 @@ void	check_double(t_arr args)
 		}
 		i++;
 	}
+	/************/
+	args.b = ft_new(10);
+	args.b_head = args.b_head;
+	args.b_size = 1;
+	/************/
 	put_stack(&args);
 	ft_sort(&args);
+	printf("stack A: ");
+	printstack(args.a);
+	printf("\n");
+	printf("stack B: ");
+	printstack(args.b);
+	printf("\n");
+	pb(&args);
+	//pa(&args);
+	printf("after pa:\n");
+	printstack(args.a_head);
+	printf("\n***********\n");
+	printf("stack B: ");
+	printstack(args.b);
 }
 
 void	ft_sort(t_arr *args)
@@ -47,7 +65,7 @@ void	ft_sort(t_arr *args)
 		{
 			temp = args->arr[idx[0]];
 			idx[1] = idx[0];
-			if (idx[1] >= size && args->arr[idx[1] - size] > temp)
+			while(idx[1] >= size && args->arr[idx[1] - size] > temp)
 			{
 				args->arr[idx[1]] = args->arr[idx[1] - size];
 				idx[1] -= size;
@@ -62,29 +80,27 @@ void	ft_sort(t_arr *args)
 void	put_stack(t_arr *args)
 {
 	int		i;
-	t_stack	*t;
 	
-	t = ft_new(args->arr[0]);
-	args->a = &t;
+	args->a_head = ft_new(args->arr[0]);
+	args->a = args->a_head;
 	i = 1;
 	while(i < args->size)
 	{
-		t->next = ft_new(args->arr[i]);
-		t = t->next; 
+		args->a->next = ft_new(args->arr[i]);
+		args->a = args->a->next; 
 		i++;
 	}
-	printstack(args->a);
+	args->a = args->a_head;
+	args->a_size = args->size;
+	//printstack(args->a_head);
 }
 
-void	printstack(t_stack **head)
+void	printstack(t_stack *head)
 {
-	t_stack *temp;
-	
-	temp = *head;
-	while (temp)
+	while (head)
 	{
-		printf("%d ",temp->nbr);
-		temp = temp->next;
+		printf("%d ",head->nbr);
+		head = head->next;
 	}
 	
 }
