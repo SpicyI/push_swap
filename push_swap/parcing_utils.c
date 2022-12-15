@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 22:16:57 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/14 22:44:55 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/15 17:49:41 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,42 @@ void	ft_sort(t_arr *args)
 
 void	put_stack(t_arr *args)
 {
-	int i;
-	t_list	*t;
-	t = ft_lstnew(args->arr[0]);
+	int		i;
+	t_stack	*t;
+	
+	t = ft_new(args->arr[0]);
 	args->a = &t;
 	i = 1;
 	while(i < args->size)
 	{
-		t->next = ft_lstnew(args->arr[i]);
+		t->next = ft_new(args->arr[i]);
 		t = t->next; 
 		i++;
 	}
+	printstack(args->a);
+}
+
+void	printstack(t_stack **head)
+{
+	t_stack *temp;
+	
+	temp = *head;
+	while (temp)
+	{
+		printf("%d ",temp->nbr);
+		temp = temp->next;
+	}
+	
+}
+
+t_stack	*ft_new(int nbr)
+{
+	t_stack	*new_node;
+
+	new_node = (t_stack *) malloc(sizeof(t_stack));
+	if (!new_node)
+		return (0);
+	new_node->nbr = nbr;
+	new_node->next = 0;
+	return (new_node);
 }
