@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:36 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/16 18:20:43 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/16 20:49:57 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+typedef struct s_chunk
+{
+	int				mid;
+	int				mvs;
+	int				tail;
+	int				nose;
+}					t_chunk;
+
 typedef struct s_arr
 {
 	int				*arr;
@@ -31,6 +39,8 @@ typedef struct s_arr
 	t_stack			*b;
 	t_stack			*b_head;
 	int				b_size;
+	t_chunk			ch;
+
 }					t_arr;
 
 /*-----------------push_swap_utils--------------------*/
@@ -60,8 +70,8 @@ void				rra(t_arr *args);
 void				rrb(t_arr *args);
 void				rrr(t_arr *args);
 /*-----------------sorting------------------------*/
-void	push_swap(t_arr *args);
-int 	is_sorted(int *arr, t_stack *list);
-void	high3(t_arr *args);
+void				push_swap(t_arr *args);
+int					is_sorted(int *arr, t_stack *list);
+void				high3(t_arr *args);
 
 #endif

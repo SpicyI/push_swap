@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:54:46 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/16 19:11:30 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/16 21:45:08 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,19 @@ void	push_swap(t_arr *args)
 {
 	if (args->size <= 3)
 		high3(args);
+	else
+	{
+		args->ch.mvs = 0;
+		args->ch.mid = args->size / 2;
+		if (args->size < 100)
+		chunker(args);
+	}
 }
 
+void	chunker(t_arr *args)
+{
+	while()
+}
 void	high3(t_arr *args)
 {
 	while (!is_sorted(args->arr, args->a_head))
