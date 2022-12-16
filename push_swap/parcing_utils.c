@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 22:16:57 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/16 00:19:42 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/16 04:17:13 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ void	check_double(t_arr args)
 		i++;
 	}
 	/************/
-	args.b = ft_new(10);
-	args.b_head = args.b_head;
-	args.b_size = 1;
-	/************/
+	// args.b = ft_new(10);
+	// args.b_head = args.b_head;
+	// args.b_size = 1;
 	put_stack(&args);
 	ft_sort(&args);
+	/************/
 	printf("stack A: ");
 	printstack(args.a);
 	printf("\n");
@@ -49,6 +49,20 @@ void	check_double(t_arr args)
 	printf("\n***********\n");
 	printf("stack B: ");
 	printstack(args.b);
+	printf("\n");
+	ra(&args);
+	printstack(args.a_head);
+	printf("\n");
+	rra(&args);
+		printstack(args.a_head);
+	printf("\n");
+	rra(&args);
+		printstack(args.a_head);
+	printf("\n");
+	rra(&args);
+		printstack(args.a_head);
+	printf("\n");
+
 }
 
 void	ft_sort(t_arr *args)
@@ -115,4 +129,22 @@ t_stack	*ft_new(int nbr)
 	new_node->nbr = nbr;
 	new_node->next = 0;
 	return (new_node);
+}
+
+t_stack	*ft_last(t_stack *stack)
+{
+	if (!stack)
+		return (0);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
+}
+
+t_stack	*ft_before_last(t_stack *stack)
+{
+	if (!stack)
+		return (0);
+	while (stack->next->next)
+		stack = stack->next;
+	return (stack);
 }

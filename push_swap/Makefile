@@ -14,7 +14,6 @@ all: $(NAME)
 $(NAME): $(SRCS) $(OBJ)
 	make -C libft
 	$(CC) $(CFLAGS) -I ./ $(OBJ) $(LIB) -o $@
-	make clean
 	echo "push_swap is created"
 
 %.o: %.c
