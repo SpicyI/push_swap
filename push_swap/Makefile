@@ -1,7 +1,7 @@
 MAKEFLAGS += --silent
 NAME= push_swap
 CC = cc
-SRCS= main.c push_swap_utils.c parcing_utils.c moves.c
+SRCS= main.c push_swap_utils.c stack_utils.c moves.c push_swap.c
 #BSRCS=
 LIB= ./libft/libft.a
 CFLAGS = -Wall -Wextra -Werror 
