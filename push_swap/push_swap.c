@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:54:46 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/17 02:46:16 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/17 23:11:50 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,35 +27,87 @@ void	push_swap(t_arr *args)
 	}
 }
 
-void	chunker(t_arr *args)
+void to_b(t_arr *args,  int c)
 {
-	args->ch.tail = args->ch.mid - args->ch.s;
-	args->ch.nose = args->ch.mid + args->ch.s;
-	while (args->a_size > 3)
+	int act;
+
+	if(!c)
+		return ;
+	if(args->ch.mvs <= args->a_size / 2)
 	{
-		args->ch.mvs = 0;
-		while(args->a)
+		act = args->ch.mvs;
+		while(0 < act--)
 		{
-			if (args->a->nbr belong chnuk)
-			{
-				if (args->ch.mvs <= args->ch.mid)
-					up (args);
-				else if (args->ch.mvs > args->ch.mid)
-					down(args);
-				break;
-			}
-			args->ch.mvs += 1;
-			args->a = args->a->next;
+			ra(args);
+			ft_putendl_fd("ra", 1);
+			printstack(args->a); printf("\n");
+			printstack(args->b); printf("\n");
 		}
 	}
-	
+	else if(args->ch.mvs > args->a_size / 2)
+	{
+		act = args->a_size - args->ch.mvs;
+		while(0 < act--)
+		{
+			rra(args);
+			ft_putendl_fd("rra", 1);
+			printstack(args->a); printf("\n");
+			printstack(args->b); printf("\n");
+		}
+	}
+	pb(args);
+	ft_putendl_fd("pb", 1);
+	printstack(args->a); printf("\n");
+	printstack(args->b); printf("\n");
+	if(c == 1)
+	{
+		rb(args);
+		ft_putendl_fd("rb", 1);
+		printstack(args->a); printf("\n");
+		printstack(args->b); printf("\n");
+	}
 }
 
-int ispart(int nbr, t_arr *args)
+void	chunker(t_arr *args)
 {
-	int i;
-	
-	i = args->ch.tail
+	args->ch.tail = args->ch.mid - (args->a_size / args->ch.s);
+	args->ch.nose = args->ch.mid + (args->a_size / args->ch.s);
+	while (args->a_size >= 3)
+	{
+		args->ch.mvs = 0;
+		while (args->a)
+		{
+			if(args->a_size <= 3)
+				break ;
+			to_b(args, ispart(args->a->nbr, args));
+			args->ch.mvs += 1;
+			args->a = args->a->next;
+			if (!args->a)
+			{
+				args->ch.tail -= (args->a_size / args->ch.s);
+				args->ch.nose += (args->a_size / args->ch.s);
+				args->a = args->a_head;
+				break ;
+			}
+		}
+	}
+	//high3(args);
+}
+
+int	ispart(int nbr, t_arr *args)
+{
+	int	i;
+
+	i = args->ch.tail;
+	if (i < 0)
+		i = 0;
+	while (i <= args->ch.mid)
+		if (nbr == args->arr[i++])
+			return (1);
+	while (i < args->size && i <= args->ch.nose)
+		if (nbr == args->arr[i++])
+			return (2);
+	return (0);
 }
 
 void	high3(t_arr *args)

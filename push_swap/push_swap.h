@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:36 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/16 22:32:45 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/17 21:57:28 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_chunk
 	int				mvs;
 	int				tail;
 	int				nose;
-	int 			s;
+	int				s;
 }					t_chunk;
 
 typedef struct s_arr
@@ -74,5 +74,7 @@ void				rrr(t_arr *args);
 void				push_swap(t_arr *args);
 int					is_sorted(int *arr, t_stack *list);
 void				high3(t_arr *args);
-
+void				chunker(t_arr *args);
+void				to_b(t_arr *args, int c);
+int					ispart(int nbr, t_arr *args);
 #endif

@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:45 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/16 18:21:31 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/17 22:02:35 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,14 @@ int	main(int ac, char **av)
 		return (1); // not enough args and do nothing
 	args = getargs(ac, av);
 	check_double(&args);
-	printstack(args.a);
+	printf("stack a:"); printstack(args.a);
+	printf("\n");
+	printf("stack b:"); printstack(args.b);
 	printf("\n");
 	push_swap(&args);
-	printstack(args.a);
+	printf("stack a:"); printstack(args.a);
+	printf("\n");
+	printf("stack b:"); printstack(args.b);
 	printf("\n");
 	//printArray(args.arr,args.size);
 	//system("leaks push_swap");

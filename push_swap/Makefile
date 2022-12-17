@@ -4,7 +4,7 @@ CC = cc
 SRCS= main.c push_swap_utils.c stack_utils.c moves.c push_swap.c
 #BSRCS=
 LIB= ./libft/libft.a
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror -fsanitize=thread
 RM = rm -f
 OBJ = $(SRCS:.c=.o)
 # BOBJ = $(BSRCS:.c=.o)
