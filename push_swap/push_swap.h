@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:36 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/16 20:49:57 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/16 22:32:45 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_chunk
 	int				mvs;
 	int				tail;
 	int				nose;
+	int 			s;
 }					t_chunk;
 
 typedef struct s_arr
