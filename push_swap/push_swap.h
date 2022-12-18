@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:36 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/17 21:57:28 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/18 17:42:12 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,6 @@ void				push_swap(t_arr *args);
 int					is_sorted(int *arr, t_stack *list);
 void				high3(t_arr *args);
 void				chunker(t_arr *args);
-void				to_b(t_arr *args, int c);
+int				to_b(t_arr *args, int c);
 int					ispart(int nbr, t_arr *args);
 #endif

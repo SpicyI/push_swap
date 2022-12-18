@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:12:22 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/18 03:20:34 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/18 17:31:19 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ void	sa(t_arr *args)
 	args->a->next = args->a->next->next;
 	args->a_head->next = args->a;
 	args->a = args->a_head;
+	printf("sa\n");
+
+	
 }
 
 void	sb(t_arr *args)
@@ -48,6 +51,7 @@ void	pa(t_arr *args)
 	args->b = args->b_head;
 	args->a = args->a_head;
 	args->b_size -= 1;
+	args->a_size += 1;
 }
 
 void	pb(t_arr *args)
@@ -60,6 +64,8 @@ void	pb(t_arr *args)
 	args->a = args->a_head;
 	args->b = args->b_head;
 	args->a_size -= 1;
+	args->b_size += 1;
+	ft_putendl_fd("pb", 1);
 }
 
 void	ra(t_arr *args)
@@ -70,6 +76,7 @@ void	ra(t_arr *args)
 	args->a->next = 0;
 	ft_last(args->a_head)->next = args->a;
 	args->a = args->a_head;
+	ft_putendl_fd("ra", 1);
 }
 
 void	rb(t_arr *args)
@@ -80,6 +87,7 @@ void	rb(t_arr *args)
 	args->b->next = 0;
 	ft_last(args->b_head)->next = args->b;
 	args->b = args->b_head;
+	ft_putendl_fd("rb", 1);
 }
 
 void	rr(t_arr *args)
@@ -96,6 +104,7 @@ void	rra(t_arr *args)
 	ft_before_last(args->a_head)->next = 0;
 	args->a->next = args->a_head;
 	args->a_head = args->a;
+	printf("rra\n");
 }
 
 void	rrb(t_arr *args)
