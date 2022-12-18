@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:36 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/18 17:42:12 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/18 21:37:44 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void				printArray(int array[], int size);
 void				printstack(t_stack *head);
 t_stack				*ft_new(int nbr);
 t_stack				*ft_last(t_stack *stack);
-t_stack				*ft_before_last(t_stack *stack);
+t_stack				*ft_outmost(t_stack *stack);
 /*-----------------moves--------------------------*/
 void				sa(t_arr *args);
 void				sb(t_arr *args);
@@ -72,9 +72,9 @@ void				rrb(t_arr *args);
 void				rrr(t_arr *args);
 /*-----------------sorting------------------------*/
 void				push_swap(t_arr *args);
-int					is_sorted(int *arr, t_stack *list);
+int					is_sorted(t_stack *list);
 void				high3(t_arr *args);
-void				chunker(t_arr *args);
-int				to_b(t_arr *args, int c);
+void				ft_pop(t_arr *args);
+int					push_b(t_arr *args, int c);
 int					ispart(int nbr, t_arr *args);
 #endif

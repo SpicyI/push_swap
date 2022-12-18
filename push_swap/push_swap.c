@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:54:46 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/18 18:36:31 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/18 21:30:40 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,18 @@
 
 void	push_swap(t_arr *args)
 {
-	if (args->size <= 3)
-		high3(args);
+
+	args->ch.mid = args->size / 2;
+	if (args->size <= 10)
+		args->ch.s = 5;
+	else if (args->size <= 150)
+		args->ch.s = 8;
 	else
-	{
-		args->ch.mid = args->size / 2;
-		if (args->size <= 10)
-			args->ch.s = 5;
-		else if (args->size <= 150)
-			args->ch.s = 8;
-		else
-			args->ch.s = 18;
-		chunker(args);
-	}
+		args->ch.s = 18;
+	ft_pop(args);
 }
 
-int to_b(t_arr *args,  int c)
+int push_b(t_arr *args,  int c)
 {
 	int act;
 
@@ -53,7 +49,7 @@ int to_b(t_arr *args,  int c)
 	return (1);
 }
 
-void	chunker(t_arr *args)
+void	ft_pop(t_arr *args)
 {
 	t_stack	*temp;
 
@@ -67,7 +63,7 @@ void	chunker(t_arr *args)
 		{
 			if(args->a_size < 4)
 				break ;
-			if(to_b(args, ispart(temp->nbr, args)))
+			if(push_b(args, ispart(temp->nbr, args)))
 				break;
 			args->ch.mvs += 1;
 			temp = temp->next;
@@ -79,7 +75,7 @@ void	chunker(t_arr *args)
 			}
 		}
 	}
-	//high3(args);
+	high3(args);
 }
 
 int	ispart(int nbr, t_arr *args)
@@ -106,7 +102,7 @@ int	ispart(int nbr, t_arr *args)
 
 void	high3(t_arr *args)
 {
-	while (!is_sorted(args->arr, args->a_head))
+	while (!is_sorted(args->a_head))
 	{
 		if (args->a->next->nbr < args->a->nbr)
 			sa(args);
@@ -115,14 +111,13 @@ void	high3(t_arr *args)
 	}
 }
 
-int	is_sorted(int *arr, t_stack *list)
+int	is_sorted(t_stack *list)
 {
-	while (list)
+	while (list->next)
 	{
-		if (list->nbr != *arr)
-			return (0);
+		if(list->next->nbr < list->nbr)
+			return(0);
 		list = list->next;
-		arr++;
 	}
 	return (1);
 }

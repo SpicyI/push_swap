@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 22:16:57 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/16 15:23:46 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/18 21:38:21 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_stack	*ft_last(t_stack *stack)
 	return (stack);
 }
 
-t_stack	*ft_before_last(t_stack *stack)
+t_stack	*ft_outmost(t_stack *stack)
 {
 	if (!stack)
 		return (0);
