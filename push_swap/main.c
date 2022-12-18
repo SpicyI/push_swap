@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:45 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/17 22:02:35 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/18 03:32:54 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@ void	printArray(int array[], int size)
 
 void	printstack(t_stack *head)
 {
+	printf("stack :   ");
 	while (head)
 	{
 		printf("%d ", head->nbr);
 		head = head->next;
 	}
+	printf("\n");
 }
 
 int	main(int ac, char **av)
@@ -38,15 +40,21 @@ int	main(int ac, char **av)
 		return (1); // not enough args and do nothing
 	args = getargs(ac, av);
 	check_double(&args);
-	printf("stack a:"); printstack(args.a);
-	printf("\n");
-	printf("stack b:"); printstack(args.b);
-	printf("\n");
+	printstack(args.a);
+	printstack(args.b);
 	push_swap(&args);
-	printf("stack a:"); printstack(args.a);
-	printf("\n");
-	printf("stack b:"); printstack(args.b);
-	printf("\n");
+	printstack(args.a);
+	printstack(args.b);
+	// pb(&args);
+	// printstack(args.a);
+	// printstack(args.b);
+	// ra(&args);
+	// printstack(args.a);
+	// printstack(args.b);
+	// ra(&args);
+	// printstack(args.a);
+	// printstack(args.b);
+
 	//printArray(args.arr,args.size);
 	//system("leaks push_swap");
 }

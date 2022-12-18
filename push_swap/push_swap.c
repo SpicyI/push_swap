@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:54:46 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/17 23:11:50 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/18 15:20:01 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ void to_b(t_arr *args,  int c)
 		{
 			ra(args);
 			ft_putendl_fd("ra", 1);
-			printstack(args->a); printf("\n");
-			printstack(args->b); printf("\n");
 		}
 	}
 	else if(args->ch.mvs > args->a_size / 2)
@@ -51,42 +49,38 @@ void to_b(t_arr *args,  int c)
 		{
 			rra(args);
 			ft_putendl_fd("rra", 1);
-			printstack(args->a); printf("\n");
-			printstack(args->b); printf("\n");
 		}
 	}
 	pb(args);
 	ft_putendl_fd("pb", 1);
-	printstack(args->a); printf("\n");
-	printstack(args->b); printf("\n");
-	if(c == 1)
+	if(c == 1 && args->b_size > 1)
 	{
 		rb(args);
 		ft_putendl_fd("rb", 1);
-		printstack(args->a); printf("\n");
-		printstack(args->b); printf("\n");
 	}
 }
 
 void	chunker(t_arr *args)
 {
+	t_stack	*temp;
+
 	args->ch.tail = args->ch.mid - (args->a_size / args->ch.s);
 	args->ch.nose = args->ch.mid + (args->a_size / args->ch.s);
-	while (args->a_size >= 3)
+	while (args->a_size > 3)
 	{
+		temp = args->a_head;
 		args->ch.mvs = 0;
-		while (args->a)
+		while (temp)
 		{
-			if(args->a_size <= 3)
+			if(args->a_size < 4)
 				break ;
-			to_b(args, ispart(args->a->nbr, args));
+			to_b(args, ispart(temp->nbr, args));
 			args->ch.mvs += 1;
-			args->a = args->a->next;
-			if (!args->a)
+			temp = temp->next;
+			if (!temp)
 			{
 				args->ch.tail -= (args->a_size / args->ch.s);
 				args->ch.nose += (args->a_size / args->ch.s);
-				args->a = args->a_head;
 				break ;
 			}
 		}
