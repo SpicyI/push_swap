@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:54:46 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/19 03:12:15 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/19 16:16:29 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,50 @@ void	push_swap(t_arr *args)
 
 void ft_push(t_arr	*args)
 {
-	while (args->b_size > 0)
+	int i;
+	t_stack *temp;
+
+	i = args->size - 1;
+	while (i >=0)
 	{
-		pa(args);
-		if(args->a_size > 1)
+		temp = args->b_head;
+		args->ch.mvs = 0;
+		while (temp)
 		{
-			if (args->a_head->nbr < args->a_head->next->nbr)
-				ra(args);
+			if (args->b_size <= 0)
+				break;
+			if (args->arr[i] == temp->nbr)
+			{
+				push_a(args);
+				break;
+			}
+			args->ch.mvs += 1;
+			temp = temp->next;
 		}
+		i--;
 	}
+}
+
+int push_a(t_arr *args)
+{
+	int act;
+
+	if (args->b_size <= 0)
+		return (0);
+	if(args->ch.mvs <= args->b_size / 2)
+	{
+		act = args->ch.mvs;
+		while(0 < act--)
+			rb(args);
+	}
+	else if(args->ch.mvs > args->b_size / 2)
+	{
+		act = args->b_size - args->ch.mvs;
+		while(0 < act--)
+			rrb(args);
+	}
+	pa(args);
+	return (1);
 }
 
 int push_b(t_arr *args,  int c)
