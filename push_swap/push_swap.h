@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:36 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/19 16:16:50 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/19 17:01:42 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,5 @@ void				ft_pop(t_arr *args);
 int					push_b(t_arr *args, int c);
 int					ispart(int nbr, t_arr *args);
 void 				ft_push(t_arr	*args);
-int					push_a(t_arr *args);
+int					push_a(t_arr *args, int c);
 #endif

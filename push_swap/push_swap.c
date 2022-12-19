@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:54:46 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/19 16:16:29 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/19 17:11:18 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void ft_push(t_arr	*args)
 				break;
 			if (args->arr[i] == temp->nbr)
 			{
-				push_a(args);
+				push_a(args, i);
 				break;
 			}
 			args->ch.mvs += 1;
@@ -54,25 +54,45 @@ void ft_push(t_arr	*args)
 	}
 }
 
-int push_a(t_arr *args)
+int push_a(t_arr *args, int c)
 {
 	int act;
+	int conf;
 
 	if (args->b_size <= 0)
 		return (0);
+	conf = 0;
 	if(args->ch.mvs <= args->b_size / 2)
 	{
 		act = args->ch.mvs;
 		while(0 < act--)
-			rb(args);
+		{
+			if(c > 0  && args->b_head->nbr == args->arr[c - 1])
+			{
+				conf = 1;
+				pa(args);
+			}
+			else
+				rb(args);
+		}
 	}
 	else if(args->ch.mvs > args->b_size / 2)
 	{
 		act = args->b_size - args->ch.mvs;
 		while(0 < act--)
-			rrb(args);
+		{
+			if(c > 0  && args->b_head->nbr == args->arr[c - 1])
+			{
+				conf = 1;	
+				pa(args);
+			}
+			else	
+				rrb(args);
+		}
 	}
 	pa(args);
+	if(conf == 1)
+		sa(args);
 	return (1);
 }
 

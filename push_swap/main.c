@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:45 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/19 03:06:08 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/19 16:46:34 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,11 @@ int	main(int ac, char **av)
 		return (1); // not enough args and do nothing
 	args = getargs(ac, av);
 	check_double(&args);
-	push_swap(&args);	
+	//printstack(args.a_head);
+	//printstack(args.b_head);
+	push_swap(&args);
+	//printstack(args.a_head);
+	//printstack(args.b_head);
 	//system("leaks push_swap");
 	return (0);
 }
