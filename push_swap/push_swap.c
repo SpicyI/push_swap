@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:54:46 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/18 21:30:40 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/19 03:12:15 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 void	push_swap(t_arr *args)
 {
 
+	if (args->size <= 3)
+		return (high3(args));
 	args->ch.mid = args->size / 2;
 	if (args->size <= 10)
 		args->ch.s = 5;
@@ -23,6 +25,20 @@ void	push_swap(t_arr *args)
 	else
 		args->ch.s = 18;
 	ft_pop(args);
+	ft_push(args);
+}
+
+void ft_push(t_arr	*args)
+{
+	while (args->b_size > 0)
+	{
+		pa(args);
+		if(args->a_size > 1)
+		{
+			if (args->a_head->nbr < args->a_head->next->nbr)
+				ra(args);
+		}
+	}
 }
 
 int push_b(t_arr *args,  int c)
@@ -44,7 +60,7 @@ int push_b(t_arr *args,  int c)
 			rra(args);
 	}
 	pb(args);
-	if(c == 1 && args->b_size > 1)
+	if(c == 1 && args->b_size > 1 && args->b_head->nbr < args->b_head->next->nbr)
 		rb(args);
 	return (1);
 }
@@ -55,13 +71,13 @@ void	ft_pop(t_arr *args)
 
 	args->ch.tail = args->ch.mid - (args->size / args->ch.s);
 	args->ch.nose = args->ch.mid + (args->size / args->ch.s);
-	while (args->a_size > 3)
+	while (args->a_size > 0)
 	{
 		temp = args->a_head;
 		args->ch.mvs = 0;
 		while (temp)
 		{
-			if(args->a_size < 4)
+			if(args->a_size <= 0)
 				break ;
 			if(push_b(args, ispart(temp->nbr, args)))
 				break;
@@ -75,7 +91,6 @@ void	ft_pop(t_arr *args)
 			}
 		}
 	}
-	high3(args);
 }
 
 int	ispart(int nbr, t_arr *args)
@@ -102,6 +117,8 @@ int	ispart(int nbr, t_arr *args)
 
 void	high3(t_arr *args)
 {
+	if (args->a_size <= 0)
+		return ;
 	while (!is_sorted(args->a_head))
 	{
 		if (args->a->next->nbr < args->a->nbr)

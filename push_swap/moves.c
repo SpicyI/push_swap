@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:12:22 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/18 21:38:09 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/19 03:10:21 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	sb(t_arr *args)
 	args->b->next = args->b->next->next;
 	args->b_head->next = args->b;
 	args->b = args->b_head;
+	printf("sb\n");
 }
 
 void	ss(t_arr *args)
@@ -52,6 +53,7 @@ void	pa(t_arr *args)
 	args->a = args->a_head;
 	args->b_size -= 1;
 	args->a_size += 1;
+	printf("pa\n");
 }
 
 void	pb(t_arr *args)
@@ -111,11 +113,11 @@ void	rrb(t_arr *args)
 {
 	if (args->b_size <= 0)
 		return ;
-	dprintf(2, "here 8\n");
 	args->b = ft_last(args->b_head);
 	ft_outmost(args->b_head)->next = 0;
 	args->b->next = args->b_head;
 	args->b_head = args->b;
+	printf("rrb\n");
 }
 
 void	rrr(t_arr *args)
