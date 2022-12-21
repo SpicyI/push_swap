@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:56:03 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/16 18:20:27 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/21 23:08:31 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,12 @@ t_arr	getargs(int ac, char **av)
 	s1 = ft_split(s, ' ');
 	args.size = countargs(s1);
 	if (!args.size)
-		exit(12);
+		ft_error();
 	args.arr = (int *)ft_calloc(args.size, sizeof(int));
 	while (i < args.size)
 	{
 		if (!alldigit(s1[i]))
-			exit(17); //not digit
+			ft_error();
 		args.arr[i] = ft_atoi(s1[i]);
 		i++;
 	}

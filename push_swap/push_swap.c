@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:54:46 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/21 19:26:27 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/21 21:00:02 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ void	push_swap(t_arr *args)
 		return (high3(args));
 	args->ch.mid = args->size / 2;
 	if (args->size <= 10)
-		args->ch.s = 5;
+		args->ch.s = 4;
 	else if (args->size <= 150)
 		args->ch.s = 8;
 	else
-		args->ch.s = 18;
+		args->ch.s = 16;
 	ft_pop(args);
 	ft_push(args);
 }
@@ -55,7 +55,6 @@ void ft_push(t_arr	*args)
 
 int push_a(t_arr *args, int c)
 {
-	int act;
 	int conf;
 
 	if (args->b_size <= 0)
@@ -63,8 +62,7 @@ int push_a(t_arr *args, int c)
 	conf = 0;
 	if(args->ch.mvs <= args->b_size / 2)
 	{
-		act = args->ch.mvs;
-		while(0 < act--)
+		while(args->b_head->nbr != args->arr[c])
 		{
 			if(c > 0  && args->b_head->nbr == args->arr[c - 1])
 			{
@@ -77,8 +75,7 @@ int push_a(t_arr *args, int c)
 	}
 	else if(args->ch.mvs > args->b_size / 2)
 	{
-		act = args->b_size - args->ch.mvs;
-		while(0 < act--)
+		while(args->b_head->nbr != args->arr[c])
 		{
 			if(c > 0  && args->b_head->nbr == args->arr[c - 1])
 			{

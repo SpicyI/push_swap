@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:36 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/19 17:01:42 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/21 23:07:33 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ t_arr				getargs(int ac, char **av);
 int					alldigit(char *s);
 int					countargs(char **s);
 void				check_double(t_arr *args);
+void				ft_error(void);
 /*-----------------stacks_utils--------------------*/
 void				put_stack(t_arr *args);
 void				ft_sort(t_arr *args);
