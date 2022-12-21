@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:12:22 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/19 03:10:21 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/21 19:25:09 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,29 +67,29 @@ void	pb(t_arr *args)
 	args->b = args->b_head;
 	args->a_size -= 1;
 	args->b_size += 1;
-	ft_putendl_fd("pb", 1);
+	printf("pb\n");
 }
 
 void	ra(t_arr *args)
 {
-	if (args->a_size <= 0)
+	if (args->a_size < 2)
 		return ;
 	args->a_head = args->a->next;
 	args->a->next = 0;
 	ft_last(args->a_head)->next = args->a;
 	args->a = args->a_head;
-	ft_putendl_fd("ra", 1);
+	printf("ra\n");
 }
 
 void	rb(t_arr *args)
 {
-	if (args->b_size <= 0)
+	if (args->b_size < 2)
 		return ;
 	args->b_head = args->b->next;
 	args->b->next = 0;
 	ft_last(args->b_head)->next = args->b;
 	args->b = args->b_head;
-	ft_putendl_fd("rb", 1);
+	printf("rb\n");
 }
 
 void	rr(t_arr *args)
@@ -100,7 +100,7 @@ void	rr(t_arr *args)
 
 void	rra(t_arr *args)
 {
-	if (args->a_size <= 0)
+	if (args->a_size < 2)
 		return ;
 	args->a = ft_last(args->a_head);
 	ft_outmost(args->a_head)->next = 0;
@@ -111,7 +111,7 @@ void	rra(t_arr *args)
 
 void	rrb(t_arr *args)
 {
-	if (args->b_size <= 0)
+	if (args->b_size < 2)
 		return ;
 	args->b = ft_last(args->b_head);
 	ft_outmost(args->b_head)->next = 0;
@@ -125,3 +125,4 @@ void	rrr(t_arr *args)
 	rra(args);
 	rrb(args);
 }
+// ./push_swap 3 4 10 9 2 1 8 5 6 7

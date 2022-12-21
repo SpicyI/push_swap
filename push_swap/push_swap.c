@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:54:46 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/19 17:11:18 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/21 19:26:27 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,13 @@ void ft_push(t_arr	*args)
 	t_stack *temp;
 
 	i = args->size - 1;
+	//printf("------%d-----\n",i);
 	while (i >=0)
 	{
 		temp = args->b_head;
 		args->ch.mvs = 0;
 		while (temp)
 		{
-			if (args->b_size <= 0)
-				break;
 			if (args->arr[i] == temp->nbr)
 			{
 				push_a(args, i);
@@ -93,7 +92,7 @@ int push_a(t_arr *args, int c)
 	pa(args);
 	if(conf == 1)
 		sa(args);
-	return (1);
+	return (conf);
 }
 
 int push_b(t_arr *args,  int c)
