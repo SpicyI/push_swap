@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: del-khay <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 14:39:10 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/12 23:07:36 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/22 16:46:27 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ static int	ft_isspace(int c)
 static	void	checkmaxmin(long n)
 {
 	if (n < INT_MIN || n > INT_MAX)
-		exit(23);
+	{
+		ft_putendl_fd("Error", 2);
+		exit (1);
+	}
 }
 
 int	ft_atoi(const char *nptr)

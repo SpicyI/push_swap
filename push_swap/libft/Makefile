@@ -6,7 +6,7 @@ SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 
 
-$(NAME): $(OBJ)
+$(NAME): $(SRC) $(OBJ)
 		ar -rcs $(NAME) $(OBJ)
 		ranlib $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:56:03 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/21 23:08:31 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/22 15:08:58 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,43 +38,38 @@ int	alldigit(char *s)
 	return (1);
 }
 
-t_arr	getargs(int ac, char **av)
+void	getargs(int ac, char **av, t_arr *args)
 {
-	t_arr	args;
-	char	*s;
-	char	**s1;
-	int		cnt;
-	int		i;
+	t_utils	m;
 
-	i = 0;
-	cnt = 0;
-	s = 0;
-	while (++cnt < ac)
+	m.i = 0;
+	m.cnt = 0;
+	m.s = 0;
+	while (++m.cnt < ac)
 	{
-		s = ft_strjoin(s, av[cnt]);
-		s = ft_strjoin(s, " ");
+		m.s = ft_strjoin(m.s, av[m.cnt]);
+		m.s = ft_strjoin(m.s, " ");
 	}
-	s1 = ft_split(s, ' ');
-	args.size = countargs(s1);
-	if (!args.size)
+	m.s1 = ft_split(m.s, ' ');
+	args->size = countargs(m.s1);
+	if (!args->size)
 		ft_error();
-	args.arr = (int *)ft_calloc(args.size, sizeof(int));
-	while (i < args.size)
+	args->arr = (int *)ft_calloc(args->size, sizeof(int));
+	while (m.i < args->size)
 	{
-		if (!alldigit(s1[i]))
+		if (!alldigit(m.s1[m.i]))
 			ft_error();
-		args.arr[i] = ft_atoi(s1[i]);
-		i++;
+		args->arr[m.i] = ft_atoi(m.s1[m.i]);
+		m.i++;
 	}
-	free(s);
-	ft_free2(s1);
-	return (args);
+	free(m.s);
+	ft_free2(m.s1);
 }
 
 void	check_double(t_arr *args)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < args->size)
@@ -83,11 +78,13 @@ void	check_double(t_arr *args)
 		while (j < args->size)
 		{
 			if (args->arr[i] == args->arr[j])
-				exit(20); // doubles
+				ft_error();
 			j++;
 		}
 		i++;
 	}
 	put_stack(args);
+	if (is_sorted(args->a_head))
+		exit(0);
 	ft_sort(args);
 }

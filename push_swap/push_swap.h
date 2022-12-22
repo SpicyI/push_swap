@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:36 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/21 23:07:33 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/22 18:23:02 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,16 @@ typedef struct s_arr
 
 }					t_arr;
 
+typedef struct s_utls
+{
+	char			*s;
+	char			**s1;
+	int				cnt;
+	int				i;
+}					t_utils;
+
 /*-----------------push_swap_utils--------------------*/
-t_arr				getargs(int ac, char **av);
+void				getargs(int ac, char **av, t_arr *args);
 int					alldigit(char *s);
 int					countargs(char **s);
 void				check_double(t_arr *args);
@@ -54,7 +62,6 @@ void				ft_error(void);
 void				put_stack(t_arr *args);
 void				ft_sort(t_arr *args);
 /*------------------moves_util----------------------*/
-void				printArray(int array[], int size);
 void				printstack(t_stack *head);
 t_stack				*ft_new(int nbr);
 t_stack				*ft_last(t_stack *stack);
@@ -78,6 +85,11 @@ void				high3(t_arr *args);
 void				ft_pop(t_arr *args);
 int					push_b(t_arr *args, int c);
 int					ispart(int nbr, t_arr *args);
-void 				ft_push(t_arr	*args);
-int					push_a(t_arr *args, int c);
+void				ft_push(t_arr *args);
+void				push_a(t_arr *args, int c);
+int					rev_rotate(t_arr *args, int c);
+int					rotate(t_arr *args, int c);
+void high16(t_arr *args);
+void do_it(t_arr *args, int i);
+
 #endif
