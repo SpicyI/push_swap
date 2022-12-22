@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:36 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/22 18:23:02 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/22 21:09:43 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ void				ft_push(t_arr *args);
 void				push_a(t_arr *args, int c);
 int					rev_rotate(t_arr *args, int c);
 int					rotate(t_arr *args, int c);
-void high16(t_arr *args);
-void do_it(t_arr *args, int i);
+void				high16(t_arr *args);
+void				do_it(t_arr *args, int i);
+void				ft_catch(char *s);
 
 #endif

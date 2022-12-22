@@ -6,24 +6,13 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:45 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/22 18:25:22 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/22 21:10:25 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	printstack(t_stack *head)
-{
-	printf("stack :   ");
-	while (head)
-	{
-		printf("%d ", head->nbr);
-		head = head->next;
-	}
-	printf("\n");
-}
-
-void high16(t_arr *args)
+void	high16(t_arr *args)
 {
 	int		i;
 	t_stack	*temp;
@@ -46,11 +35,11 @@ void high16(t_arr *args)
 		i++;
 	}
 	high3(args);
-	while(args->b_size)
+	while (args->b_size)
 		pa(args);
 }
 
-void do_it(t_arr *args, int i)
+void	do_it(t_arr *args, int i)
 {
 	if (args->ch.mvs <= args->a_size / 2)
 	{
@@ -73,7 +62,7 @@ void	rrr(t_arr *args)
 
 void	ft_error(void)
 {
-	ft_putendl_fd("Error\n", 2);
+	ft_putendl_fd("Error", 2);
 	exit(1);
 }
 

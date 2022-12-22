@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:54:46 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/22 18:01:38 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/22 20:49:43 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ void	push_swap(t_arr *args)
 	if (args->size <= 16)
 		return (high16(args));
 	args->ch.mid = args->size / 2;
-	if (args->size <= 10)
-		args->ch.s = 4;
-	else if (args->size <= 150)
+	if (args->size <= 150)
 		args->ch.s = 8;
 	else
 		args->ch.s = 16;
@@ -57,6 +55,7 @@ void	push_a(t_arr *args, int c)
 {
 	int	conf;
 
+	conf = 0;
 	if (args->b_size <= 0)
 		return ;
 	if (args->ch.mvs <= args->b_size / 2)

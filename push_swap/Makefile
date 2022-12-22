@@ -1,11 +1,11 @@
 MAKEFLAGS += --silent
 NAME= push_swap
 CC = cc
-SRCS= main.c push_swap_utils.c stack_utils.c moves.c push_swap.c stack_utils_2.c moves2.c
+SRCS= SRCS/main.c SRCS/push_swap_utils.c SRCS/stack_utils.c SRCS/moves.c SRCS/push_swap.c SRCS/stack_utils_2.c SRCS/moves2.c
 #BSRCS=
 LIB= ./libft/libft.a
 MFILE= ./Makefile
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 RM = rm -f
 OBJ = $(SRCS:.c=.o)
 # BOBJ = $(BSRCS:.c=.o)

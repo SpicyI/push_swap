@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:56:03 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/22 15:08:58 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/22 21:09:50 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	getargs(int ac, char **av, t_arr *args)
 	m.s = 0;
 	while (++m.cnt < ac)
 	{
+		ft_catch(av[m.cnt]);
 		m.s = ft_strjoin(m.s, av[m.cnt]);
 		m.s = ft_strjoin(m.s, " ");
 	}
@@ -87,4 +88,21 @@ void	check_double(t_arr *args)
 	if (is_sorted(args->a_head))
 		exit(0);
 	ft_sort(args);
+}
+
+void	ft_catch(char *s)
+{
+	int	c;
+
+	c = 0;
+	if (!s || !ft_strlen(s))
+		ft_error();
+	while (*s)
+	{
+		if (ft_isdigit(*s))
+			c++;
+		s++;
+	}
+	if (!c)
+		ft_error();
 }
