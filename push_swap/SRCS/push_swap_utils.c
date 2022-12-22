@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:56:03 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/22 21:09:50 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/22 22:28:56 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	alldigit(char *s)
 	if (!s || !ft_strlen(s))
 		return (0);
 	if (!ft_isdigit(*s) && *s != '+' && *s != '-')
+		return (0);
+	if (ft_strlen(s) == 1 && *s == '+' && *s == '-')
 		return (0);
 	s++;
 	while (*s)

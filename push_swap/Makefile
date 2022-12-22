@@ -5,7 +5,7 @@ SRCS= SRCS/main.c SRCS/push_swap_utils.c SRCS/stack_utils.c SRCS/moves.c SRCS/pu
 #BSRCS=
 LIB= ./libft/libft.a
 MFILE= ./Makefile
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror 
 RM = rm -f
 OBJ = $(SRCS:.c=.o)
 # BOBJ = $(BSRCS:.c=.o)

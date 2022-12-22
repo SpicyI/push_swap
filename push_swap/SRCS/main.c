@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:45 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/22 21:10:25 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/22 22:27:56 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	high16(t_arr *args)
 		{
 			if (args->arr[i] == temp->nbr)
 			{
-				do_it(args, i);
+				push_it(args, i);
 				break ;
 			}
 			args->ch.mvs += 1;
@@ -39,7 +39,7 @@ void	high16(t_arr *args)
 		pa(args);
 }
 
-void	do_it(t_arr *args, int i)
+void	push_it(t_arr *args, int i)
 {
 	if (args->ch.mvs <= args->a_size / 2)
 	{
@@ -71,7 +71,7 @@ int	main(int ac, char **av)
 	t_arr	args;
 
 	if (ac < 2)
-		ft_error();
+		exit(0);
 	getargs(ac, av, &args);
 	check_double(&args);
 	push_swap(&args);
