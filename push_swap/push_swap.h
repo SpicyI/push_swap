@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:35:36 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/23 17:46:25 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:53:01 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdio.h>
 # define DSPL 1
 # define N_DSPL 0
-
 
 typedef struct s_stack
 {
@@ -57,8 +56,8 @@ typedef struct s_utls
 
 typedef struct s_match
 {
-	char *mvs[12];
-	void (*d[11])(t_arr *, int);
+	char			*mvs[12];
+	void			(*d[11])(t_arr *, int);
 }					t_match;
 
 /*-----------------push_swap_utils--------------------*/
@@ -101,7 +100,9 @@ int					rotate(t_arr *args, int c);
 int					rev_rotate(t_arr *args, int c);
 void				push_it(t_arr *args, int i);
 /*--------------------checker-------------------*/
-void	check_moves(char *move, t_arr *args, char **mvs,void (**d)(t_arr *, int));
-void	get_moves(t_arr *args, char **mvs, void (**d)(t_arr *, int));
-void	ft_assign(t_match *p);
+void				check_moves(char *move, t_arr *args, char **mvs,
+						void (**d)(t_arr *, int));
+void				get_moves(t_arr *args, char **mvs, void (**d)(t_arr *,
+							int));
+void				ft_assign(t_match *p);
 #endif

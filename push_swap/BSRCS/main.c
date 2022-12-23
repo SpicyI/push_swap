@@ -6,13 +6,14 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 22:37:24 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/23 17:46:17 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:53:29 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_moves(char *move, t_arr *args, char **mvs, void (**d)(t_arr *, int))
+void	check_moves(char *move, t_arr *args, char **mvs, void (**d)(t_arr *,
+			int))
 {
 	int	i;
 
@@ -45,6 +46,7 @@ void	get_moves(t_arr *args, char **mvs, void (**d)(t_arr *, int))
 	else
 		ft_putendl_fd("KO", 1);
 }
+
 void	ft_assign(t_match *p)
 {
 	p->d[0] = &ra;
@@ -72,13 +74,11 @@ void	ft_assign(t_match *p)
 	p->mvs[11] = 0;
 }
 
-
 int	main(int ac, char **av)
 {
 	t_arr	args;
-	t_match p;
-	
-	
+	t_match	p;
+
 	ft_assign(&p);
 	if (ac < 2)
 		exit(0);
