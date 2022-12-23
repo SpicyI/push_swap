@@ -1,14 +1,15 @@
 MAKEFLAGS += --silent
 NAME= push_swap
+BNAME= checker
 CC = cc
-SRCS= SRCS/main.c SRCS/push_swap_utils.c SRCS/stack_utils.c SRCS/moves.c SRCS/push_swap.c SRCS/stack_utils_2.c SRCS/moves2.c
-#BSRCS=
+SRCS= SRCS/main.c SRCS/push_swap_utils.c SRCS/stack_utils.c SRCS/moves.c SRCS/push_swap.c SRCS/stack_utils_2.c SRCS/moves2.c SRCS/utils.c
+BSRCS= BSRCS/main.c SRCS/push_swap_utils.c SRCS/stack_utils.c SRCS/moves.c SRCS/push_swap.c SRCS/stack_utils_2.c SRCS/moves2.c SRCS/utils.c
 LIB= ./libft/libft.a
 MFILE= ./Makefile
 CFLAGS = -Wall -Wextra -Werror 
 RM = rm -f
 OBJ = $(SRCS:.c=.o)
-# BOBJ = $(BSRCS:.c=.o)
+BOBJ = $(BSRCS:.c=.o)
 
 all: $(NAME)
 
@@ -20,10 +21,10 @@ $(NAME): $(MFILE) $(SRCS) $(OBJ)
 %.o: %.c
 		$(CC) $(CFLAGS) -I. -o $@ -c $?
 
-# bonus: $(BOBJ)
-# 	make -C libft
-# 	$(CC) $(CFLAGS) -I . $(MLX_FLAGS) $(BOBJ) $(LIB) -o $(NAME)
-# 	echo "so_long bonus is created"
+bonus: $(MFILE) $(BSRCS) $(BOBJ)
+	make -C libft
+	$(CC) $(CFLAGS) -I ./ $(BOBJ) $(LIB) -o $(BNAME)
+	echo "checker is created"
 
 clean:
 		make clean -C libft
@@ -31,7 +32,7 @@ clean:
 
 fclean: clean
 		make fclean -C libft
-		$(RM) $(NAME)
-		echo "push_swap is deleted"
+		$(RM) $(NAME) $(BNAME)
+		echo "all is deleted"
 
 re: fclean all

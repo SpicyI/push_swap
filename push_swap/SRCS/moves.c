@@ -6,13 +6,13 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 18:12:22 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/22 03:10:29 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:20:04 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rb(t_arr *args)
+void	rb(t_arr *args, int c)
 {
 	if (args->b_size < 2)
 		return ;
@@ -20,16 +20,19 @@ void	rb(t_arr *args)
 	args->b->next = 0;
 	ft_last(args->b_head)->next = args->b;
 	args->b = args->b_head;
-	ft_putendl_fd("rb", 1);
+	if (c == DSPL)
+		ft_putendl_fd("rb", 1);
 }
 
-void	rr(t_arr *args)
+void	rr(t_arr *args, int c)
 {
-	ra(args);
-	rb(args);
+	ra(args, N_DSPL);
+	rb(args, N_DSPL);
+	if (c == DSPL)
+		ft_putendl_fd("rr", 1);
 }
 
-void	rra(t_arr *args)
+void	rra(t_arr *args, int c)
 {
 	if (args->a_size < 2)
 		return ;
@@ -37,10 +40,11 @@ void	rra(t_arr *args)
 	ft_outmost(args->a_head)->next = 0;
 	args->a->next = args->a_head;
 	args->a_head = args->a;
-	ft_putendl_fd("rra", 1);
+	if (c == DSPL)
+		ft_putendl_fd("rra", 1);
 }
 
-void	rrb(t_arr *args)
+void	rrb(t_arr *args, int c)
 {
 	if (args->b_size < 2)
 		return ;
@@ -48,10 +52,11 @@ void	rrb(t_arr *args)
 	ft_outmost(args->b_head)->next = 0;
 	args->b->next = args->b_head;
 	args->b_head = args->b;
-	ft_putendl_fd("rrb", 1);
+	if (c == DSPL)
+		ft_putendl_fd("rrb", 1);
 }
 
-void	ra(t_arr *args)
+void	ra(t_arr *args, int c)
 {
 	if (args->a_size < 2)
 		return ;
@@ -59,5 +64,6 @@ void	ra(t_arr *args)
 	args->a->next = 0;
 	ft_last(args->a_head)->next = args->a;
 	args->a = args->a_head;
-	ft_putendl_fd("ra", 1);
+	if (c == DSPL)
+		ft_putendl_fd("ra", 1);
 }

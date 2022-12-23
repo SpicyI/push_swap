@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 03:29:49 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/22 15:30:20 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:32:09 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	high3(t_arr *args)
 	while (!is_sorted(args->a_head))
 	{
 		if (args->a->next->nbr < args->a->nbr)
-			sa(args);
+			sa(args, DSPL);
 		else
-			rra(args);
+			rra(args, DSPL);
 	}
 }
 
@@ -68,10 +68,10 @@ int	rotate(t_arr *args, int c)
 		if (c > 0 && args->b_head->nbr == args->arr[c - 1])
 		{
 			conf = 1;
-			pa(args);
+			pa(args, DSPL);
 		}
 		else
-			rb(args);
+			rb(args, DSPL);
 	}
 	return (conf);
 }
@@ -86,10 +86,10 @@ int	rev_rotate(t_arr *args, int c)
 		if (c > 0 && args->b_head->nbr == args->arr[c - 1])
 		{
 			conf = 1;
-			pa(args);
+			pa(args, DSPL);
 		}
 		else
-			rrb(args);
+			rrb(args, DSPL);
 	}
 	return (conf);
 }

@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:56:03 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/22 22:28:56 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:47:43 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	getargs(int ac, char **av, t_arr *args)
 	ft_free2(m.s1);
 }
 
-void	check_double(t_arr *args)
+void	check_double(t_arr *args, int c)
 {
 	int	i;
 	int	j;
@@ -87,7 +87,7 @@ void	check_double(t_arr *args)
 		i++;
 	}
 	put_stack(args);
-	if (is_sorted(args->a_head))
+	if (is_sorted(args->a_head) && c == N_DSPL)
 		exit(0);
 	ft_sort(args);
 }

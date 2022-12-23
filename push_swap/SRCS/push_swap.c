@@ -6,7 +6,7 @@
 /*   By: del-khay <del-khay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:54:46 by del-khay          #+#    #+#             */
-/*   Updated: 2022/12/22 20:49:43 by del-khay         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:28:43 by del-khay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void	push_a(t_arr *args, int c)
 		conf = rotate(args, c);
 	else if (args->ch.mvs > args->b_size / 2)
 		conf = rev_rotate(args, c);
-	pa(args);
+	pa(args, DSPL);
 	if (conf == 1)
-		sa(args);
+		sa(args, DSPL);
 }
 
 int	push_b(t_arr *args, int c)
@@ -77,18 +77,18 @@ int	push_b(t_arr *args, int c)
 	{
 		act = args->ch.mvs;
 		while (0 < act--)
-			ra(args);
+			ra(args, DSPL);
 	}
 	else if (args->ch.mvs > args->a_size / 2)
 	{
 		act = args->a_size - args->ch.mvs;
 		while (0 < act--)
-			rra(args);
+			rra(args, DSPL);
 	}
-	pb(args);
+	pb(args, DSPL);
 	if (c == 1 && args->b_size > 1
 		&& args->b_head->nbr < args->b_head->next->nbr)
-		rb(args);
+		rb(args, DSPL);
 	return (1);
 }
 
