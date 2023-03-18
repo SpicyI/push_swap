@@ -6,7 +6,7 @@ SRCS= SRCS/main.c SRCS/push_swap_utils.c SRCS/stack_utils.c SRCS/moves.c SRCS/pu
 BSRCS= BSRCS/main.c SRCS/push_swap_utils.c SRCS/stack_utils.c SRCS/moves.c SRCS/push_swap.c SRCS/stack_utils_2.c SRCS/moves2.c SRCS/utils.c
 LIB= ./libft/libft.a
 MFILE= ./Makefile
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror -g
 RM = rm -f
 OBJ = $(SRCS:.c=.o)
 BOBJ = $(BSRCS:.c=.o)
